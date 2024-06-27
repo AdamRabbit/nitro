@@ -1,6 +1,7 @@
 package arbitrum
 
 import (
+	"context"
 	"fmt"
 )
 
@@ -17,4 +18,8 @@ func NewPublicNetAPI(networkVersion uint64) *PublicNetAPI {
 // Version returns the current ethereum protocol version.
 func (s *PublicNetAPI) Version() string {
 	return fmt.Sprintf("%d", s.networkVersion)
+}
+
+func (s *PublicNetAPI) HelleWorld(ctx context.Context, name string) string {
+	return fmt.Sprintf("%s, hello world!", name)
 }
